@@ -1,7 +1,7 @@
 <template>
-    <div class="message">
+    <div class="message" > 
         <div class="user">
-            <p class="name"> Samuel Jackson </p>
+            <p class="name">  </p>
             <p class="date"> 13 Apr 2022 </p>
         </div>
         <div class="message-form">
@@ -11,15 +11,26 @@
             </div>
         </div>
         <div class="send-message">
-            <textarea></textarea>
-            <button>  <p>Send a message  </p> </button>
+            <textarea></textarea>{{ this.allMessages }}
+            <button @click="logMet()">  <p>Send a message  </p> </button>
         </div>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex';
 export default {
-    name: 'MessageVue'
+    name: 'MessageVue',
+    computed: {
+        ...mapGetters['allMessages'],
+        ...mapState['messages']
+    },
+    methods: {
+        logMet() {
+            console.log(this.allMessages);
+            console.log('allMessages');
+        }
+    }
 }
 </script>
 
