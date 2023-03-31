@@ -1,35 +1,33 @@
 <template>
-    <div class="message" > 
+    <div class="message" v-for="item in messages" :key="item.id"> 
         <div class="user">
-            <p class="name">  </p>
-            <p class="date"> 13 Apr 2022 </p>
+            <p class="name"> {{ item.userName }} </p>
+            <p class="date"> {{item.date}} </p>
         </div>
         <div class="message-form">
             <div class="triangle"></div>
             <div class="content">
-               <p>Hey Eva! You're cool. Nice pic!</p> 
+               <p> {{ item.content }}</p> 
             </div>
         </div>
         <div class="send-message">
-            <textarea></textarea>{{ this.allMessages }}
-            <button @click="logMet()">  <p>Send a message  </p> </button>
+            <textarea></textarea>
+            <button >  <p> Send a message </p> </button>
         </div>
     </div>
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
 export default {
     name: 'MessageVue',
     computed: {
-        ...mapGetters['allMessages'],
-        ...mapState['messages']
+        messages() {
+            return this.$store.getters.allMessages
+             
+        }
     },
     methods: {
-        logMet() {
-            console.log(this.allMessages);
-            console.log('allMessages');
-        }
+       
     }
 }
 </script>
@@ -38,6 +36,7 @@ export default {
 <style scoped lang="scss">
 
 .message {
+    
     .user {
         display: flex;
         align-items: center;
@@ -56,7 +55,7 @@ export default {
     .message-form {
         position: relative;
         margin-bottom: 10px;
-        height: 50px;
+        height: max-content;
         border: 1px solid #C4CBCF;
         padding: 0% 3% 0 3%;
     }

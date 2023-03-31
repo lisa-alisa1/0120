@@ -79,7 +79,10 @@
                 </div>
               </div>
             </div>
+            <div class="overflow">
               <Message />
+            </div>
+              
         </div>
       </div>
     </div>
@@ -110,7 +113,10 @@ export default {
         }
         .messages-wrapper {
           height: min-content;
-
+            .overflow {
+              overflow: scroll !important;
+              height: 24vh;
+            }
             .reviews {
               display: flex;
               justify-content: space-between;
@@ -257,5 +263,7 @@ export default {
             }
         }
     }
+
+ 
 
   </style>

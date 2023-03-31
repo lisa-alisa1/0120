@@ -21,8 +21,6 @@ export default createStore({
             date: '8 Apr 2022',
             content: "Eva, hello! There is such a question: How can I contact you if I am abroad in roaming?",
         },
-        
-        
     ]
    },
    getters: {
