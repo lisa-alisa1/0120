@@ -2,7 +2,7 @@
     <div class="message" v-for="item in messages" :key="item.id"> 
         <div class="user">
             <p class="name"> {{ item.userName }} </p>
-            <p class="date"> {{item.date}} </p>
+            <p class="date"> {{formatDate(item.date)  }} </p>
         </div>
         <div class="message-form">
             <div class="triangle"></div>
@@ -11,8 +11,8 @@
             </div>
         </div>
         <div class="send-message">
-            <textarea></textarea>
-            <button >  <p> Send a message </p> </button>
+            <textarea v-model="this.content"  @keyup.ctrl.enter="sendMessage"></textarea> {{ this.content }}
+            <button @click="sendMessage()"> <p> Send a message </p> </button>
         </div>
     </div>
 </template>
@@ -20,14 +20,37 @@
 <script>
 export default {
     name: 'MessageVue',
+    data() {
+        return {
+            content: ''
+        }
+    },
     computed: {
         messages() {
             return this.$store.getters.allMessages
-             
-        }
+        },
+        
     },
     methods: {
-       
+       sendMessage() {
+            if(this.content !== '') {
+                this.$store.dispatch('sendMessage', {
+                    id: 0,
+                    userName: 'Eva Jonson',
+                    date: Date.now(),
+                    content: this.content
+
+                }).then(() => {
+                    this.content = ''
+                })
+            }
+       },
+
+       formatDate(value) {
+            const date = new Date(value);
+            const formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+            return formattedDate
+        }
     }
 }
 </script>

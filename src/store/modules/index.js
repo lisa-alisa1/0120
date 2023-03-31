@@ -6,19 +6,19 @@ export default createStore({
         {
             id: 1,
             userName: 'Samuel Jackson',
-            date: '13 Apr 2022',
+            date:1649644800 * 1000,
             content: "Hey Eva! You're cool. Nice pic!",
         },
         {
             id: 2,
             userName: 'Angela Deimon',
-            date: '10 Apr 2022',
+            date: 1649616000 * 1000,
             content: "Thanks for your services! We really liked the ocean view room. We hope to cooperate in the near future. We are sure you will do everything to make our next holiday fantastic.",
         },
         {
             id: 3,
             userName: 'Ronald Harris',
-            date: '8 Apr 2022',
+            date: 1649472000 * 1000,
             content: "Eva, hello! There is such a question: How can I contact you if I am abroad in roaming?",
         },
     ]
