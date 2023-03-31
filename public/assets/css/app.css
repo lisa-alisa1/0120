@@ -7,3 +7,9 @@ body {
 p {
     font-family: Arial;
 }
+
+@media screen and (max-width: 414px)  { 
+    p {
+        font-size: 12px;
+    }
+}

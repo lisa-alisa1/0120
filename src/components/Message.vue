@@ -2,7 +2,7 @@
     <div class="message" v-for="item in messages" :key="item.id"> 
         <div class="user">
             <p class="name"> {{ item.userName }} </p>
-            <p class="date"> {{formatDate(item.date)  }} </p>
+            <p class="date"> {{ formatDate(item.date) }} </p>
         </div>
         <div class="message-form">
             <div class="triangle"></div>
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="send-message">
-            <textarea v-model="this.content"  @keyup.ctrl.enter="sendMessage"></textarea> {{ this.content }}
+            <textarea v-model="this.content"  @keyup.ctrl.enter="sendMessage"></textarea>
             <button @click="sendMessage()"> <p> Send a message </p> </button>
         </div>
     </div>
@@ -63,7 +63,6 @@ export default {
     .user {
         display: flex;
         align-items: center;
-
         .name {
             font-weight: 700;
             font-size: 14px;

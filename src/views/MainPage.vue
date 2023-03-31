@@ -1,6 +1,7 @@
 <template>
     <div class="container">
       <div class="message-block">
+
         <div class="header">
           <img src="../assets/logo.svg" >
           <div class="profile-info">
@@ -62,6 +63,7 @@
             </div>
           </div>
         </div>
+
         <div class="messages-wrapper">
             <div class="reviews">
               <div>
@@ -82,28 +84,29 @@
             <div class="overflow">
               <Message />
             </div>
-              
         </div>
       </div>
     </div>
   </template>
   
+
   <script>
 import Message from '@/components/Message.vue';
-export default {
-      components: { Message }
-}
 
+export default {
+  components: { Message }
+}
   </script> 
 
-  <style lang="scss" scoped>
+
+  <style lang="scss" >
 
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
+    
     .message-block { 
         height: 90vh;
         width: 80%;
@@ -135,7 +138,6 @@ export default {
                 align-items: center;
                 justify-content: center;
                 
-               
                 a {
                   margin-left: 10px;
                   color: #005DA1;
@@ -143,9 +145,9 @@ export default {
               }
             }
         }
+
         .chart {
           height: min-content;
-
           display: flex;
           flex-direction: row-reverse;
           width: 50%;
@@ -241,7 +243,6 @@ export default {
                   width: 115%;
                   margin-left: -60px;
                   
-
                     p {
                       font-size: 14px;
                       font-weight: 400;
@@ -264,6 +265,52 @@ export default {
         }
     }
 
- 
+    @media screen and (max-width: 600px)  {
 
+      div.header img {
+          height: 7rem !important;
+      }
+      
+      .profile-info div {
+        height: 2.3rem;
+
+        p {
+          font-size: 13px !important;
+          padding-left: 16% !important;
+        }
+      }
+
+    }
+ 
+    @media screen and (max-width: 414px)  { 
+      div.header img {
+          height: 5rem !important;
+      }
+      .header {
+        flex-direction: column;
+      }
+      div.header img {
+          border-radius:0% !important;
+      }
+      .chart {
+        width: 100% !important;
+        margin: 0% !important;
+
+      }
+      .profile-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        div {
+          width: 100% !important;
+          margin-left: -4% !important;
+        }
+      }
+      .send-message {
+        height: 20%;
+      }
+    }
+  
   </style>
